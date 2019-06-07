@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :about, only: [:index]
   resources :terms, only: [:index]
-  resources :articles
+  resources :articles, path_names: {:create => '/index'}
   resource :contacts, only: [:new, :create], path_names: {:new => ''}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

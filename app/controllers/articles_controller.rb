@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
+    @articles = Article.order(id: :desc)
   end
 
   private

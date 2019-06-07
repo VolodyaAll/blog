@@ -1,1 +1,12 @@
 <h1>All articles</h1>
+<ul>
+	<% @articles.each do |article| %>
+		<li>
+			<p>				
+				<a href=""><%= article.text %></a>
+				<br />
+				<%= article.title %>
+			</p>
+		</li>		
+	<% end %>
+</ul>
