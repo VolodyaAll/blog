@@ -16,6 +16,10 @@ class ArticlesController < ApplicationController
     @articles = Article.order(id: :desc)
   end
 
+  def show
+    @article = Article.find params[:id]
+  end
+
   private
 
   def article_params
