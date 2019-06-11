@@ -3,8 +3,11 @@
 	<% @articles.each do |article| %>
 		<li>
 			<p>	
-				<a href="<%= articles_path %>/<%= article.id %>"><%= article.title %></a>		
+				<%= link_to "#{article.title}", article_path(article) %> | 
+				<%= link_to "Edit", edit_article_path(article) %>
 			</p>
-		</li>		
+		</li>	
+		<hr />	
 	<% end %>
+
 </ul>
