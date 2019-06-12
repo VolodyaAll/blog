@@ -5,8 +5,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new article_params
-    if @article.valid?
-      @article.save
+    if @article.save
       redirect_to @article
     else
       render action: 'new'
@@ -27,9 +26,12 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    permitted_columns = params.require(:article).permit(:title, :description)
-    @article.update_attributes(permitted_columns)
-    redirect_to articles_path
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render action: 'edit'
+    end
   end
 
   private

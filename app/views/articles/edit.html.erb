@@ -1,5 +1,5 @@
 <h2>Edit <%= params[:id] %> article</h2>
-<%= form_for :article, url: article_path do |f| %>
+<%= form_for :article, url: article_path(@article), method: :put do |f| %>
 
 	<% if @article && @article.errors.any? %>
 		<p>
