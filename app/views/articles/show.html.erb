@@ -10,7 +10,7 @@
 	<% @article.comments.each do |comment| %>
 		<li>
 			<p>	
-				<h4>Author: <%= comment.author %></h4>
+				<h4><%= comment.author %> said:</h4>
 				<%= comment.body %> 
 			</p>
 		</li>	
