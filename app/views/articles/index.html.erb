@@ -4,7 +4,12 @@
 		<li>
 			<p>	
 				<%= link_to "#{article.title}", article_path(article) %> | 
-				<%= link_to "Edit", edit_article_path(article) %>
+				<%= link_to "Show", article %> |
+				<%= link_to "Edit", edit_article_path(article) %> | 
+				<%= link_to 'Delete', 
+                 article_path(article), 
+                             method: :delete, 
+                             data: { confirm: 'Are you sure?' } %> 
 			</p>
 		</li>	
 		<hr />	
