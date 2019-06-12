@@ -1,10 +1,24 @@
 <h1>Article <%= @article.id %></h1>
-<p>
-	<%= @article.title %>
-</p>
+<h2><%= @article.title %></h2>
 <p>
 	<%= @article.text %>
 </p>
+<hr />
+<h3>Comments:</h3>
+
+<ul>
+	<% @article.comments.each do |comment| %>
+		<li>
+			<p>	
+				<h4>Author: <%= comment.author %></h4>
+				<%= comment.body %> 
+			</p>
+		</li>	
+		<hr />	
+	<% end %>
+</ul>
+
+<h3>Add new comment</h3>
 
 <p>
 	<%= form_for([@article, @article.comments.build]) do |f| %>	
