@@ -11,12 +11,14 @@
 
   <body>
 
+    <a href="/users/sign_in">Sign In</a> | <a href="/users/sign_out" data-method="delete">Sign Out</a>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <% flash.each do | name, msg | %>
+<!--     <% flash.each do | name, msg | %>
       <%= content_tag :div, msg, class: name %>
-    <% end %>
+    <% end %> -->
 
     <%= yield %>
   </body>
