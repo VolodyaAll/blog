@@ -1,38 +1,37 @@
 <h2>Edit <%= params[:id] %> article</h2>
-<%= form_for :article, url: article_path(@article), method: :put, html: {:class => "form-horizontal", :align => "center"} do |f| %>
+<%= form_for :article, url: article_path(@article), method: :put, html: {class: "form-horizontal", align: "center"} do |f| %>
 
-	<% if @article && @article.errors.any? %>
-		<p>
-			<ul>
-				<% @article.errors.full_messages.each do |msg| %>
-					<li>
-						<%= msg %>
-					</li>				
-				<% end %>
-			</ul>
-		</p>
-	<% end %>
-	<p>
-		<div class="form-group", align="center">
-			<%= f.label :title, class: "col-md-4 control-label" %><br />
-			<div class="col-md-12">
-				<%= f.text_field :title, class: "form-control" %>
-			</div>
-		</div>
-	</p>
+  <% if @article && @article.errors.any? %>
+    <p>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </p>
+  <% end %>
+  <p>
+    <div class="form-group", align="center">
+      <%= f.label :title, class: "col-md-4 control-label" %><br />
+      <div class="col-md-12">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+  </p>
 
-	<p>
-		<div class="form-group", align="center">
-			<%= f.label :text, class: "col-md-4 control-label" %><br />
-			<div class="col-md-12">
-				<%= f.text_area :text, class: "form-control" %>
-			</div>
-		</div>
-	</p>
+  <p>
+    <div class="form-group", align="center">
+      <%= f.label :text, class: "col-md-4 control-label" %><br />
+      <div class="col-md-12">
+        <%= f.text_area :text, class: "form-control" %>
+      </div>
+    </div>
+  </p>
 
-	<p>
-		<%= f.submit "Save changes", class: "btn btn-default btn-primary" %>
-	</p>
+  <p>
+    <%= f.submit "Save changes", class: "btn btn-default btn-primary" %>
+  </p>
 
 <% end %>
-

@@ -1,36 +1,35 @@
 <h1>Article <%= @article.id %></h1>
 <h2><%= @article.title %></h2>
 <p>
-	<%= @article.text %>
+  <%= @article.text %>
 </p>
 <hr />
 <h3>Comments:</h3>
 
 <ul>
-	<% @article.comments.each do |comment| %>
-		<li>
-			<p>	
-				<h4><%= comment.author %> said:</h4>
-				<%= comment.body %> 
-			</p>
-		</li>	
-		<hr />	
-	<% end %>
+  <% @article.comments.each do |comment| %>
+    <li>
+      <p>
+        <h4><%= comment.author %> said:</h4>
+        <%= comment.body %>
+      </p>
+    </li>
+    <hr />
+  <% end %>
 </ul>
 
 <h3>Add new comment</h3>
 
 <p>
-	<%= form_for([@article, @article.comments.build]) do |f| %>	
-		
-		<p>
-			<%= f.label :body %><br />
-			<%= f.text_area :body %>
-		</p>
+  <%= form_for([@article, @article.comments.build]) do |f| %>
 
-		<p>
-			<%= f.submit %>
-		</p>
-	<% end %>
+    <p>
+      <%= f.label :body %><br />
+      <%= f.text_area :body %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
 </p>
-
