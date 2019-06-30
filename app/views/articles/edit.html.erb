@@ -1,17 +1,8 @@
 <h2>Edit <%= params[:id] %> article</h2>
 <%= form_for :article, url: article_path(@article), method: :put, html: {class: "form-horizontal", align: "center"} do |f| %>
 
-  <% if @article && @article.errors.any? %>
-    <p>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
-        <% end %>
-      </ul>
-    </p>
-  <% end %>
+  <%= render "article_errors" %>
+  
   <p>
     <div class="form-group", align="center">
       <%= f.label :title, class: "col-md-4 control-label" %><br />

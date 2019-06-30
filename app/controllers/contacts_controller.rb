@@ -4,9 +4,11 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new contact_params
+    @contact = Contact.new(contact_params)
 
-    render action: 'new' unless @contact.save
+    unless @contact.save
+      render action: 'new'
+    end 
   end
 
   private
