@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :load_article, only: [:show, :edit, :update, :destroy]
 
   def new
   end
@@ -19,16 +20,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find params[:id]
   end
 
   def edit
-    @article = Article.find params[:id]
   end
 
   def update
-    @article = Article.find(params[:id])
-
     if @article.update(article_params)
       redirect_to @article
     else
@@ -37,7 +34,6 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path, notice: "Delete success"
   end
@@ -48,4 +44,7 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :text)
   end
 
+  def load_article
+    @article ||= Article.find(params[:id])
+  end
 end
